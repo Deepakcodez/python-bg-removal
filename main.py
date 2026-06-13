@@ -11,9 +11,9 @@ app = FastAPI(title="Omagine Background Removal API")
 CORS_ALLOWED_ORIGINS = [
 "https://omagine.app",
 "https://backend.omagine.app",
-"https://localhost:8000",
-"https://localhost:3000",
-"https://localhost:3001",
+"http://localhost:8000",
+"http://localhost:3000",
+"http://localhost:3001",
 ]
 
 app.add_middleware(
