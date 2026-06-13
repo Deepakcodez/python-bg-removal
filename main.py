@@ -68,7 +68,7 @@ def validate_image_upload(file: UploadFile, image_data: bytes):
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok"}
+    return {"status": "Healthy"}
 
 
 @app.post("/remove-bg")
