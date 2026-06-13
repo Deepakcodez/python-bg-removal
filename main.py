@@ -2,10 +2,27 @@ import os
 from io import BytesIO
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from PIL import Image
 
 app = FastAPI(title="Omagine Background Removal API")
+
+CORS_ALLOWED_ORIGINS = [
+"https://omagine.app",
+"https://backend.omagine.app",
+"https://localhost:8000",
+"https://localhost:3000",
+"https://localhost:3001",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=CORS_ALLOWED_ORIGINS,
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 ALLOWED_CONTENT_TYPES = {"image/jpeg", "image/png", "image/webp"}
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
